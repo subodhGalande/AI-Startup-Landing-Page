@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .btn-primary {
+    @apply px-4 py-1 bg-AI-Purple/40 shadow-inner-white  backdrop-blur-xl text-white text-base border border-white/5 rounded-lg ring-white ring-1 ring-opacity-30;
+  }
+}
