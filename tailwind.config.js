@@ -13,9 +13,9 @@ export default {
         "screen-minus-navbar-mobile": "calc(100vh - 72px)", // Assuming the navbar height is 64px
       },
       backgroundImage: {
-        "hero-pattern-mobile": "url('/src/assets/patternMobile.png')",
-        starMobile: "url('/src/assets/starsMobile.png')",
-        mobileEllipse: "url('/src/assets/Ellipse.png')",
+        "hero-pattern-mobile": "url('/patternMobile.png')",
+        starMobile: "url('/starsMobile.png')",
+        mobileEllipse: "url('/Ellipse.png')",
       },
       colors: {
         "AI-Purple": "#9855FF",

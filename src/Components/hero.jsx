@@ -38,27 +38,27 @@ const Hero = () => {
             <ul className="flex h-10 gap-8 w-max items-center">
               <li className="h-fit w-full">
                 {" "}
-                <img src="../src/assets/acme.png" className="" />{" "}
+                <img src="/acme.png" className="" />{" "}
               </li>
               <li className="h-fit w-full">
                 {" "}
-                <img src="../src/assets/quantum.png" />{" "}
+                <img src="/quantum.png" />{" "}
               </li>
               <li className=" h-fit w-full">
                 {" "}
-                <img src="../src/assets/pulse.png" />{" "}
+                <img src="/pulse.png" />{" "}
               </li>
               <li className="h-fit w-full">
                 {" "}
-                <img src="../src/assets/apex.png" />{" "}
+                <img src="/apex.png" />{" "}
               </li>
               <li className="h-fit w-full">
                 {" "}
-                <img src="../src/assets/echo.png" />{" "}
+                <img src="/echo.png" />{" "}
               </li>
               <li className="h-fit w-full">
                 {" "}
-                <img src="../src/assets/celestial.png" />{" "}
+                <img src="/celestial.png" />{" "}
               </li>
             </ul>
           </div>
