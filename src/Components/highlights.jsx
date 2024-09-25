@@ -33,7 +33,7 @@ const Highlights = () => {
               <div className="absolute inset-10 z-0 h-full w-11/12">
                 <img src="/userfriendly.png" />
               </div>
-              <div className="z-10 h-fit space-y-3 self-stretch text-white">
+              <div className="z-10 h-fit space-y-3 text-white">
                 <h1 className="font-bold">User-friendly dashboard</h1>
                 <p className="text-white/70">
                   Perform complex SEO audits and optimizations with a single
