@@ -4,7 +4,7 @@ import Highlights from "./Components/highlights";
 import Rankings from "./Components/rankings";
 import Clients from "./Components/clients";
 import Pricing from "./Components/pricing";
-
+import Connect from "./Components/connect";
 function App() {
   return (
     <>
@@ -14,6 +14,7 @@ function App() {
       <Rankings />
       <Clients />
       <Pricing />
+      <Connect />
     </>
   );
 }
