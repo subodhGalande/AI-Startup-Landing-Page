@@ -47,16 +47,16 @@ const PricingCard = () => {
         {prices.map((item, index) => (
           <div
             key={index}
-            className="relative flex h-[500px] w-full flex-col justify-between gap-y-10 rounded-xl border-2 border-white/10 px-5 py-6"
+            className="relative flex h-[500px] w-full flex-col justify-between gap-y-10 overflow-clip rounded-xl border-2 border-white/10 px-5 py-6"
           >
-            <div className="relative space-y-3 text-left">
-              <h2 className="z-20 text-2xl font-medium text-white">
-                {item.plan}
-              </h2>
+            <div className="absolute inset-0 z-0 h-full w-full bg-hero-pattern-mobile bg-cover bg-center"></div>
+            <div className="absolute inset-0 z-10 h-full w-full bg-gradient-to-b from-black to-[#361764]/30"></div>
+            <div className="relative z-30 space-y-3 text-left">
+              <h2 className="text-2xl font-medium text-white">{item.plan}</h2>
               <p className="text-white/70">{item.price}</p>
-              <div className="absolute -bottom-6 z-10 w-full border border-white/10"></div>
+              <div className="absolute -bottom-6 z-30 w-full border border-white/10"></div>
             </div>
-            <div className="h-full space-y-3 text-left">
+            <div className="z-20 h-full space-y-3 text-left">
               {item.features.map((feature, index) => (
                 <div key={index} className="flex items-center gap-x-2">
                   <IoCheckmarkSharp />
@@ -64,7 +64,7 @@ const PricingCard = () => {
                 </div>
               ))}
             </div>
-            <button className="btn-primary">Join Waitlist</button>
+            <button className="btn-primary z-30">Join Waitlist</button>
           </div>
         ))}
       </div>
