@@ -1,7 +1,8 @@
 const Hero = () => {
   return (
     <>
-      <section className="relative h-full w-screen overflow-x-hidden bg-opacity-35 bg-hero-pattern-mobile">
+      <section className="bg-fill relative h-[760px] w-screen overflow-clip bg-opacity-35 bg-hero-pattern-mobile">
+        <div className="absolute -bottom-[1100px] -right-[400px] z-0 h-[210%] w-[200%] rounded-full bg-[#8C45FF] opacity-70 blur-3xl"></div>
         <div className="absolute inset-0 bg-gradient-to-br from-black to-black/30"></div>
         <div className="flex h-screen flex-col items-center justify-center gap-7 px-10">
           <div className="z-10 flex items-center gap-2 self-start rounded-full border-2 border-white/10 bg-black px-3 py-2">
@@ -63,7 +64,7 @@ const Hero = () => {
             </ul>
           </div>
         </div>
-        <div className="absolute inset-0 z-0 h-screen rounded-b-3xl bg-mobileEllipse bg-cover"></div>
+        {/* <div className="absolute inset-0 z-0 h-screen rounded-b-3xl bg-mobileEllipse bg-contain"></div> */}
       </section>
     </>
   );
