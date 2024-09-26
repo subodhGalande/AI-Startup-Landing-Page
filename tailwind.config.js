@@ -16,6 +16,8 @@ export default {
         "hero-pattern-mobile": "url('/patternMobile.png')",
         starMobile: "url('/starsMobile.png')",
         mobileEllipse: "url('/Ellipse.png')",
+
+        "radial-gradient": "radial-gradient(circle, var(--tw-gradient-stops))",
       },
       colors: {
         "AI-Purple": "#9855FF",

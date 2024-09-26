@@ -4,6 +4,9 @@
 
 @layer components {
   .btn-primary {
-    @apply px-4 py-1 bg-AI-Purple/40 shadow-inner-white  backdrop-blur-xl text-white text-base border border-white/5 rounded-lg ring-white ring-1 ring-opacity-30;
+    @apply rounded-lg border border-white/5 bg-AI-Purple/40 px-4 py-1 text-base text-white shadow-inner-white ring-1 ring-white ring-opacity-30 backdrop-blur-xl;
+  }
+  .btn-secondary {
+    @apply rounded-lg border border-white/5 bg-white/20 px-4 py-1 text-base text-white shadow-inner-white ring-1 ring-white ring-opacity-30 backdrop-blur-xl;
   }
 }

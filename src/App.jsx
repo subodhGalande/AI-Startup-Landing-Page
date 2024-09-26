@@ -3,6 +3,7 @@ import Navbar from "./Components/navbar";
 import Highlights from "./Components/highlights";
 import Rankings from "./Components/rankings";
 import Clients from "./Components/clients";
+import Pricing from "./Components/pricing";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
       <Highlights />
       <Rankings />
       <Clients />
+      <Pricing />
     </>
   );
 }

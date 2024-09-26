@@ -11,7 +11,7 @@ const Clients = () => {
           like you.
         </p>
         <div className="flex flex-col gap-y-4">
-          <img src="/avatar.png" alt="" className="z-20" />
+          <img src="/avatar.png" alt="" className="z-20 mx-auto h-44 w-44" />
           <p className="z-20 pt-6 text-lg font-medium text-white">
             ”This product has completely transformed how I manage my projects
             and deadlines”

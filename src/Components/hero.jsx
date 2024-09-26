@@ -1,41 +1,41 @@
 const Hero = () => {
   return (
     <>
-      <section className="relative overflow-x-hidden bg-cover bg-center bg-hero-pattern-mobile bg-opacity-35 w-screen h-screen">
+      <section className="relative h-full w-screen overflow-x-hidden bg-opacity-35 bg-hero-pattern-mobile">
         <div className="absolute inset-0 bg-gradient-to-br from-black to-black/30"></div>
-        <div className=" h-screen px-10 flex flex-col gap-7 justify-center items-center">
-          <div className="rounded-full z-10 bg-black self-start py-2 px-3 border-2 border-white/10  flex items-center gap-2 ">
-            <div className="rounded-full px-1 text-[10px] bg-AI-Purple ">
-              <p className="text-black font-bold">NEW</p>
+        <div className="flex h-screen flex-col items-center justify-center gap-7 px-10">
+          <div className="z-10 flex items-center gap-2 self-start rounded-full border-2 border-white/10 bg-black px-3 py-2">
+            <div className="rounded-full bg-AI-Purple px-1 text-[10px]">
+              <p className="font-bold text-black">NEW</p>
             </div>
             <div>
-              <p className="text-AI-Purple text-base">
+              <p className="text-base text-AI-Purple">
                 Latest integration just arrived
               </p>
             </div>
           </div>
-          <h1 className=" z-10 leading-tight font-medium bg-gradient-to-br from-gray-700 from-0% to-40% to-white bg-clip-text text-[54px] text-transparent">
+          <h1 className="z-10 bg-gradient-to-br from-gray-700 from-0% to-white to-40% bg-clip-text text-[54px] font-medium leading-tight text-transparent">
             Elevate your SEO efforts.
           </h1>
-          <p className="text-white/70 z-10 text-lg leading-relaxed font-light">
+          <p className="z-10 text-lg font-light leading-relaxed text-white/70">
             Elevate your site’s visibility effortlessly with AI, where smart
             technology meets user-friendly SEO tools.
           </p>
-          <div className="flex flex-col w-full h-fit gap-4 z-10">
+          <div className="z-10 flex h-fit w-full flex-col gap-4">
             <input
               type="text"
-              className="bg-transparent border  border-white/30 placeholder-white/40 rounded-md py-2 px-4 w-full h-fit"
+              className="h-fit w-full rounded-md border border-white/30 bg-transparent px-4 py-2 placeholder-white/40"
               placeholder="Type Email"
             ></input>
-            <button className="btn-primary w-full py-2 bg-white text-black">
+            <button className="btn-primary w-full bg-white py-2 text-black">
               Join Waitlist
             </button>
           </div>
-          <p className="text-sm z-10 font-light text-white/70">
+          <p className="z-10 text-sm font-light text-white/70">
             Trusted by top innovative teams
           </p>
-          <div className="z-10">
-            <ul className="flex h-10 gap-8 w-max items-center">
+          <div className="z-10 py-2">
+            <ul className="flex h-10 w-max items-center gap-x-8">
               <li className="h-fit w-full">
                 {" "}
                 <img src="/acme.png" className="" />{" "}
@@ -44,7 +44,7 @@ const Hero = () => {
                 {" "}
                 <img src="/quantum.png" />{" "}
               </li>
-              <li className=" h-fit w-full">
+              <li className="h-fit w-full">
                 {" "}
                 <img src="/pulse.png" />{" "}
               </li>
@@ -63,7 +63,7 @@ const Hero = () => {
             </ul>
           </div>
         </div>
-        <div className="absolute h-screen z-0 bg-mobileEllipse bg-cover inset-0 rounded-b-3xl"></div>
+        <div className="absolute inset-0 z-0 h-screen rounded-b-3xl bg-mobileEllipse bg-cover"></div>
       </section>
     </>
   );
