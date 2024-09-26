@@ -49,7 +49,7 @@ const PricingCard = () => {
             key={index}
             className="relative flex h-[500px] w-full flex-col justify-between gap-y-10 overflow-clip rounded-xl border-2 border-white/10 px-5 py-6"
           >
-            <div className="absolute inset-0 z-0 h-full w-full bg-hero-pattern-mobile bg-cover bg-center"></div>
+            <div className="absolute inset-0 z-0 h-full w-full bg-hero-pattern-mobile bg-cover bg-center opacity-50"></div>
             <div className="absolute inset-0 z-10 h-full w-full bg-gradient-to-b from-black to-[#361764]/30"></div>
             <div className="relative z-30 space-y-3 text-left">
               <h2 className="text-2xl font-medium text-white">{item.plan}</h2>
