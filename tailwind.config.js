@@ -10,17 +10,23 @@ export default {
     },
     extend: {
       height: {
-        "screen-minus-navbar-mobile": "calc(100vh - 72px)", // Assuming the navbar height is 64px
+        "screen-minus-navbar-mobile": "calc(100vh - 72px)",
       },
       backgroundImage: {
         "hero-pattern-mobile": "url('/patternMobile.png')",
-        starMobile: "url('/starsMobile.png')",
-        mobileEllipse: "url('/Ellipse.png')",
-
+        "stars-Mobile": "url('/starsMobile.png')",
+        "hero-pattern-desktop": "url('/patterndesktop.png')",
+        "hero-3d": "url('/hero3d.png')",
         "radial-gradient": "radial-gradient(circle, var(--tw-gradient-stops))",
+        "stars-desktop": "url('/starsDesktop.png')",
+        "mobile-gradient": "url('/Ellipse.png')",
+        "desktop-pricing-patter": "url('/pricingpatter-desktop.png')",
       },
       colors: {
         "AI-Purple": "#9855FF",
+      },
+      blur: {
+        hero: "400px",
       },
     },
   },

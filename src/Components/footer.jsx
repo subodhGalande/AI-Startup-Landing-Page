@@ -23,8 +23,8 @@ const footerItems = [
 
 const Footer = () => {
   return (
-    <div className="mt-20 flex h-fit w-full flex-col gap-y-12 border-t-2 border-white/10 px-8 py-4">
-      <div className="flex items-center justify-between">
+    <div className="mt-20 flex h-fit w-full flex-col gap-y-12 border-t-2 border-white/10 px-8 py-4 sm:flex-row sm:justify-between">
+      <div className="flex items-center justify-between sm:flex-col">
         <div className="flex items-center gap-x-3">
           <img src="/Logo.png" alt="" height="38px" width="38px" />
           <p className="text-white">AI Startup</p>
@@ -35,7 +35,7 @@ const Footer = () => {
           <FaYoutube className="h-7 w-8" />
         </div>
       </div>
-      <div className="flex flex-wrap gap-y-14">
+      <div className="flex flex-wrap gap-y-14 sm:w-1/2 sm:flex-nowrap">
         {footerItems.map((item, index) => (
           <div key={index} className="h-fit w-1/2 space-y-4">
             {" "}

@@ -42,15 +42,15 @@ const prices = [
 const PricingCard = () => {
   return (
     <>
-      <div className="relative z-20 space-y-4">
+      <div className="relative z-20 mx-auto space-y-4 sm:flex sm:w-fit sm:gap-x-4 sm:space-y-0">
         {" "}
         {prices.map((item, index) => (
           <div
             key={index}
-            className="relative flex h-[500px] w-full flex-col justify-between gap-y-10 overflow-clip rounded-xl border-2 border-white/10 px-5 py-6"
+            className="group relative flex h-[500px] w-full flex-col justify-between gap-y-10 overflow-clip rounded-xl border-2 border-white/10 px-5 py-6 sm:mx-auto sm:w-72"
           >
-            <div className="absolute inset-0 z-0 h-full w-full bg-hero-pattern-mobile bg-cover bg-center opacity-50"></div>
-            <div className="absolute inset-0 z-10 h-full w-full bg-gradient-to-b from-black to-[#361764]/30"></div>
+            <div className="sm:bg-desktop-pricing-patter h-11/12 absolute inset-0 z-0 w-full bg-hero-pattern-mobile bg-cover bg-center opacity-30 transition-opacity duration-200 sm:bg-contain sm:opacity-0 sm:group-hover:opacity-20"></div>
+            <div className="absolute inset-0 z-10 h-full w-full bg-gradient-to-b from-black to-[#361764]/30 transition-opacity duration-200 sm:opacity-0 sm:group-hover:opacity-100"></div>
             <div className="relative z-30 space-y-3 text-left">
               <h2 className="text-2xl font-medium text-white">{item.plan}</h2>
               <p className="text-white/70">{item.price}</p>
@@ -64,7 +64,9 @@ const PricingCard = () => {
                 </div>
               ))}
             </div>
-            <button className="btn-primary z-30">Join Waitlist</button>
+            <button className="btn-primary sm:btn-secondary sm:group-hover:btn-primary z-30">
+              Join Waitlist
+            </button>
           </div>
         ))}
       </div>

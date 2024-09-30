@@ -1,25 +1,28 @@
 const Clients = () => {
   return (
     <>
-      <div className="relative w-full space-y-5 px-12 py-14 text-center text-white">
-        <div className="absolute left-1/2 top-1/2 z-0 h-3/6 w-80 -translate-x-1/2 -translate-y-1/2 transform rounded-full bg-[#8C45FF] opacity-50 blur-3xl"></div>
-        <h2 className="z-20 text-center text-2xl font-medium text-white">
-          Our Clients
+      <div className="relative mx-auto space-y-5 px-12 py-14 text-center text-white sm:w-10/12">
+        <h2 className="z-20 text-center text-3xl font-medium text-white sm:text-6xl">
+          What people say
         </h2>
-        <p className="relative z-20 pb-5 text-lg font-light">
+        <p className="text relative z-20 pb-5 font-light sm:mx-auto sm:w-1/3 sm:text-xl">
           Hear firsthand how our solutions have boosted online success for users
           like you.
         </p>
-        <div className="flex flex-col gap-y-4">
-          <img src="/avatar.png" alt="" className="z-20 mx-auto h-44 w-44" />
-          <p className="z-20 pt-6 text-lg font-medium text-white">
-            ”This product has completely transformed how I manage my projects
-            and deadlines”
-          </p>
-          <div className="">
-            <p>Sesame Taylor</p>
-            <p className="text-sm text-white/70">
-              Digital Marketing Director @ Apex
+        <div className="sm:flex sm:gap-x-9">
+          {" "}
+          <div className="relative flex h-fit w-80 flex-col gap-y-4 overflow-clip rounded-xl border-2 border-white/10 px-6 py-8">
+            <div className="absolute -inset-10 z-0 h-64 w-64 rounded-full border bg-[#8C45FF]/30 blur-3xl"></div>
+            <img src="/avatar1.png" alt="" className="h-26 z-0 w-24" />
+            <div className="z-10 text-left">
+              <p>Sesame Taylor</p>
+              <p className="text-sm text-white/70">
+                Digital Marketing Director @ Apex
+              </p>
+            </div>
+            <p className="text z-20 text-left font-medium text-white sm:text-xl">
+              ”This product has completely transformed how I manage my projects
+              and deadlines”
             </p>
           </div>
         </div>

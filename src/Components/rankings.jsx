@@ -43,13 +43,16 @@ const Rankings = () => {
     <>
       <div className="relative mt-20 flex h-fit w-full flex-col justify-start gap-y-16 border-2 border-white/10 px-12 py-16">
         <div className="absolute inset-0 z-0 h-full w-full bg-gradient-to-bl from-transparent to-[#190D2E]"></div>
-        <h2 className="z-10 text-center text-2xl font-medium text-white">
+        <h2 className="z-10 text-center text-2xl font-medium text-white sm:w-1/3 sm:text-left sm:text-6xl">
           Elevate your Rankings.
         </h2>
         <div className="z-10">
-          <ul className="space-y-10">
+          <ul className="mx-auto space-y-10 sm:flex sm:w-full sm:flex-wrap sm:justify-around sm:gap-y-6 sm:space-y-0">
             {features.map((item, index) => (
-              <li key={index}>
+              <li
+                key={index}
+                className="sm:h-22 sm:flex sm:w-1/3 sm:flex-col sm:px-5"
+              >
                 <div className="z-10 flex h-fit items-center gap-x-2 text-white">
                   {item.icon}
                   <h1 className="font-bold">{item.heading}</h1>
