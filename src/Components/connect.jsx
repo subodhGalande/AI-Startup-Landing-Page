@@ -5,7 +5,7 @@ const Connect = () => {
         <div className="absolute -top-40 z-10 h-5/6 w-full rotate-90 rounded-full bg-[#361764] blur-3xl sm:hidden"></div>
         <div className="sm:bg-hero-pattern-desktop absolute inset-0 z-0 bg-hero-pattern-mobile bg-cover opacity-40"></div>
         <div className="absolute z-10 h-full w-full bg-gradient-to-t from-black to-transparent to-50%"></div>
-        <div className="absolute -top-80 z-10 h-full w-2/3 rounded-full bg-[#361764] blur-[400px]"></div>
+        <div className="absolute -top-60 z-10 h-full w-2/3 rounded-full bg-[#361764]/70 blur-3xl"></div>
         <div className="bg-stars-desktop absolute h-full w-full bg-contain"></div>
 
         <h1 className="relative z-10 text-center text-4xl font-medium text-white sm:h-fit sm:w-1/2 sm:text-5xl sm:leading-[3.5rem]">
