@@ -6,6 +6,7 @@ import Clients from "./Components/clients";
 import Pricing from "./Components/pricing";
 import Connect from "./Components/connect";
 import Footer from "./Components/footer";
+
 function App() {
   return (
     <>

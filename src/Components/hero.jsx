@@ -1,14 +1,24 @@
 const Hero = () => {
+  const logos = [
+    "/acme.png",
+    "/quantum.png",
+    "/pulse.png",
+    "/apex.png",
+    "/echo.png",
+    "/celestial.png",
+  ];
+
   return (
     <>
-      <section className="sm:bg-hero-pattern-desktop bg-fill relative h-fit w-screen overflow-clip bg-hero-pattern-mobile sm:mx-auto sm:h-screen-minus-navbar-mobile">
-        <div className="bg-stars-Mobile sm:bg-stars-desktop absolute inset-0 z-10 h-full w-full rounded-b-3xl sm:w-screen sm:bg-contain"></div>
+      <section className="relative h-fit w-full overflow-hidden bg-hero-pattern-mobile py-8 sm:mx-auto sm:h-screen-minus-navbar-mobile sm:bg-hero-pattern-desktop sm:py-0 sm:pl-36">
+        <div className="absolute inset-0 z-10 h-full w-full rounded-b-3xl bg-stars-Mobile sm:w-screen sm:bg-stars-desktop sm:bg-contain"></div>
         <div className="absolute -bottom-[36rem] -right-[10rem] hidden h-[58rem] w-[58rem] rounded-full bg-[#8C45FF]/70 blur-3xl sm:block"></div>
         <div className="absolute z-0 hidden h-full w-full bg-gradient-to-tl from-[#8C45FF] to-50% sm:block"></div>
         {/* <div className="absolute -bottom-[1100px] -right-[400px] z-0 h-[210%] w-[200%] rounded-full bg-[#8C45FF] opacity-70 blur-3xl"></div> */}
         <div className="absolute inset-0 bg-gradient-to-br from-black to-black/30"></div>
+
         {/* hero Content */}
-        <div className="flex h-full flex-col items-center justify-center px-10 sm:h-[90%] sm:flex-row sm:flex-wrap sm:justify-end sm:px-0 sm:pl-20">
+        <div className="flex h-full flex-col items-center justify-center px-10 sm:h-[90%] sm:w-fit sm:flex-row sm:flex-wrap sm:justify-start sm:px-0">
           <div className="relative z-20 flex flex-col gap-y-7 pt-20 sm:h-fit sm:w-[40%] sm:p-0">
             <div className="flex items-center gap-2 self-start rounded-full border-2 border-white/10 bg-black px-3 py-2">
               <div className="rounded-full bg-AI-Purple px-1 text-[10px]">
@@ -45,42 +55,36 @@ const Hero = () => {
               className="h-full w-full object-contain"
             />{" "}
           </div>
-        </div>
-        {/* brands ribbon */}
-        <div className="relative z-20 flex h-fit w-full flex-col items-center justify-center gap-y-4 py-10 sm:ml-auto sm:w-[85%] sm:flex-row sm:gap-x-20 sm:px-0 sm:py-0">
-          <p className="shrink-0 text-sm font-light text-white/70 sm:justify-self-start">
-            Trusted by top innovative teams
-          </p>
-          <div className="py-2">
-            <ul className="flex h-10 items-center gap-x-8 sm:gap-x-12">
-              <li className="h-fit w-full">
-                {" "}
-                <img src="/acme.png" className="" />{" "}
-              </li>
-              <li className="h-fit w-full">
-                {" "}
-                <img src="/quantum.png" />{" "}
-              </li>
-              <li className="h-fit w-full">
-                {" "}
-                <img src="/pulse.png" />{" "}
-              </li>
-              <li className="h-fit w-full">
-                {" "}
-                <img src="/apex.png" />{" "}
-              </li>
-              <li className="h-fit w-full">
-                {" "}
-                <img src="/echo.png" />{" "}
-              </li>
-              <li className="h-fit w-full">
-                {" "}
-                <img src="/celestial.png" />{" "}
-              </li>
-            </ul>
+
+          {/* brands ribbon */}
+          <div className="relative z-20 flex flex-col items-center justify-center sm:-mt-4 sm:w-screen sm:flex-row sm:justify-start sm:gap-x-10 sm:justify-self-start">
+            <div className="shrink-0 flex-col flex-nowrap pt-10 sm:flex sm:w-fit sm:pt-0">
+              <p className="text-sm font-light text-white/70">
+                Trusted by top innovative teams:
+              </p>
+            </div>
+
+            <div className="flex h-20 items-center justify-center pb-2">
+              <ul className="flex h-20 shrink items-center justify-center gap-x-12">
+                {logos &&
+                  logos.map((logo, index) => (
+                    <li
+                      key={index}
+                      className="flex h-8 w-max items-center justify-center"
+                    >
+                      {" "}
+                      <img
+                        src={logo}
+                        className="h-full w-fit object-contain"
+                      />{" "}
+                    </li>
+                  ))}
+              </ul>
+            </div>
           </div>
         </div>
-        <div className="bg-mobile-gradient absolute inset-0 z-10 h-full rounded-b-3xl bg-cover sm:hidden"></div>
+
+        <div className="absolute inset-0 z-10 h-full rounded-b-3xl bg-mobile-gradient bg-cover sm:hidden"></div>
       </section>
     </>
   );

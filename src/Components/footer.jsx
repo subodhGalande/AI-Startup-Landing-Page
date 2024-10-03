@@ -37,13 +37,17 @@ const Footer = () => {
       </div>
       <div className="flex flex-wrap gap-y-14 sm:w-1/2 sm:flex-nowrap">
         {footerItems.map((item, index) => (
-          <div key={index} className="h-fit w-1/2 space-y-4">
+          <div key={index} className="flex h-fit w-1/2 flex-col gap-y-4">
             {" "}
             <h2 className="text-lg font-medium text-white">{item.title}</h2>
             {item.itemList.map((text, index) => (
-              <p key={index} className="text-sm font-light text-white/70">
+              <a
+                key={index}
+                href="#"
+                className="text-sm font-light text-white/70"
+              >
                 {text}
-              </p>
+              </a>
             ))}
           </div>
         ))}
