@@ -1,6 +1,8 @@
 import { IoMenu } from "react-icons/io5";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { IoClose } from "react-icons/io5";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -9,9 +11,23 @@ const Navbar = () => {
     setIsOpen(!isOpen);
   };
 
+  const navbar = useRef();
+
+  useGSAP(() => {
+    gsap.from(navbar.current, {
+      y: -100,
+      duration: 1,
+      opacity: 0,
+      ease: "power3.out",
+    });
+  });
+
   return (
     <>
-      <nav className="fixed z-50 flex h-fit w-full justify-between bg-black px-4 py-4 backdrop-blur-xl sm:relative sm:mx-auto sm:mt-2 sm:w-fit sm:items-center sm:justify-around sm:rounded-xl sm:border-2 sm:border-white/10 sm:px-2 sm:py-2">
+      <nav
+        ref={navbar}
+        className="fixed z-50 flex h-fit w-full justify-between bg-black px-4 py-4 backdrop-blur-xl sm:relative sm:mx-auto sm:mt-2 sm:w-fit sm:items-center sm:justify-around sm:rounded-xl sm:border-2 sm:border-white/10 sm:px-2 sm:py-2"
+      >
         <img src="/Logo.png" height="38px" width="38px" alt="Logo" />
 
         {/* Desktop Navigation */}

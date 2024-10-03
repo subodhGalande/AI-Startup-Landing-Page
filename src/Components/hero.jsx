@@ -1,3 +1,7 @@
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+import { useRef } from "react";
+
 const Hero = () => {
   const logos = [
     "/acme.png",
@@ -7,6 +11,54 @@ const Hero = () => {
     "/echo.png",
     "/celestial.png",
   ];
+
+  const heroContainer = useRef();
+  const heroText = useRef();
+  const tl = useRef();
+  const heroImage = useRef();
+  const brandRibbon = useRef();
+  const brandLogo = useRef();
+  useGSAP(
+    () => {
+      tl.current = gsap
+        .timeline()
+        .from(heroText.current, {
+          x: -100,
+          opacity: 0,
+          duration: 0.5,
+          ease: "power1.out",
+        })
+        .from(heroImage.current, {
+          x: 100,
+          opacity: 0,
+          ease: "power1.out",
+          immediateRender: true,
+        })
+        .from(brandRibbon.current, {
+          y: 100,
+          opacity: 0,
+          duration: 0.5,
+          ease: "power1.out",
+        })
+        .to(heroImage.current, {
+          y: 20,
+          duration: 1.5,
+          yoyo: true,
+          repeat: -1,
+          ease: "power1.inOut",
+        })
+        .to(".brandLogo", {
+          xPercent: -100,
+          duration: 25,
+          repeat: -1,
+          ease: "linear",
+          modifiers: {
+            xPercent: gsap.utils.wrap(-100, 0), // Ensures continuous smooth scrolling
+          },
+        });
+    },
+    { scope: heroContainer },
+  );
 
   return (
     <>
@@ -18,8 +70,15 @@ const Hero = () => {
         <div className="absolute inset-0 bg-gradient-to-br from-black to-black/30"></div>
 
         {/* hero Content */}
-        <div className="flex h-full flex-col items-center justify-center px-10 sm:h-[90%] sm:w-fit sm:flex-row sm:flex-wrap sm:justify-start sm:px-0">
-          <div className="relative z-20 flex flex-col gap-y-7 pt-20 sm:h-fit sm:w-[40%] sm:p-0">
+        <div
+          ref={heroContainer}
+          className="flex h-full flex-col items-center justify-center px-10 sm:h-[90%] sm:w-fit sm:flex-row sm:flex-wrap sm:justify-center sm:px-0"
+        >
+          <div
+            ref={heroText}
+            id="herotext"
+            className="relative z-20 flex flex-col gap-y-7 pt-20 sm:h-fit sm:w-[40%] sm:p-0"
+          >
             <div className="flex items-center gap-2 self-start rounded-full border-2 border-white/10 bg-black px-3 py-2">
               <div className="rounded-full bg-AI-Purple px-1 text-[10px]">
                 <p className="font-bold text-black">NEW</p>
@@ -48,29 +107,49 @@ const Hero = () => {
               </button>
             </div>
           </div>
-          <div className="z-30 hidden h-full w-1/2 sm:block">
+          <div ref={heroImage} className="z-30 hidden h-full w-1/2 sm:block">
             {" "}
             <img
               src="/hero3d.png"
-              className="h-full w-full object-contain"
+              height="100%"
+              width="100%"
+              className="-ml-20 h-full w-full object-contain"
             />{" "}
           </div>
 
           {/* brands ribbon */}
-          <div className="relative z-20 flex flex-col items-center justify-center sm:-mt-4 sm:w-screen sm:flex-row sm:justify-start sm:gap-x-10 sm:justify-self-start">
+          <div
+            ref={brandRibbon}
+            className="relative z-20 flex flex-col items-center justify-center sm:-mt-4 sm:w-screen sm:flex-row sm:justify-start sm:gap-x-10 sm:justify-self-start"
+          >
             <div className="shrink-0 flex-col flex-nowrap pt-10 sm:flex sm:w-fit sm:pt-0">
               <p className="text-sm font-light text-white/70">
                 Trusted by top innovative teams:
               </p>
             </div>
 
-            <div className="flex h-20 items-center justify-center pb-2">
-              <ul className="flex h-20 shrink items-center justify-center gap-x-12">
+            <div className="relative flex h-20 overflow-x-hidden py-2 sm:py-0">
+              <ul className="brandLogo flex h-20 items-center justify-start">
                 {logos &&
                   logos.map((logo, index) => (
                     <li
                       key={index}
-                      className="flex h-8 w-max items-center justify-center"
+                      className="flex h-8 w-max items-center justify-center px-12"
+                    >
+                      {" "}
+                      <img
+                        src={logo}
+                        className="h-full w-fit object-contain"
+                      />{" "}
+                    </li>
+                  ))}
+              </ul>
+              <ul className="brandLogo flex h-20 items-center justify-start">
+                {logos &&
+                  logos.map((logo, index) => (
+                    <li
+                      key={index}
+                      className="flex h-8 w-max items-center justify-center px-12"
                     >
                       {" "}
                       <img
