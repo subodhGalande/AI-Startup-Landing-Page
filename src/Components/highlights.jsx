@@ -33,11 +33,11 @@ const Highlights = () => {
       y: 100,
       duration: 1,
       opacity: 0,
-      stagger: 0.5,
+      stagger: 1,
       scrollTrigger: {
         trigger: ".cards",
         start: "top 100%",
-        end: "bottom 50%",
+        end: "+=600",
         scroller: "body",
         scrub: 2,
       },

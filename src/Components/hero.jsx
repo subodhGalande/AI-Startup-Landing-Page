@@ -25,7 +25,7 @@ const Hero = () => {
           delay: 1,
         })
         .from(heroText.current, {
-          x: -100,
+          x: -20,
           opacity: 0,
           duration: 0.5,
           ease: "power1.out",
@@ -34,7 +34,7 @@ const Hero = () => {
         .from(
           heroImage.current,
           {
-            x: 100,
+            x: 20,
             opacity: 0,
             ease: "power1.out",
             immediateRender: true,
@@ -45,7 +45,7 @@ const Hero = () => {
           y: 100,
           opacity: 0,
           duration: 0.5,
-          ease: "power1.out",
+          ease: "power2.out",
         })
         .to(heroImage.current, {
           y: 20,

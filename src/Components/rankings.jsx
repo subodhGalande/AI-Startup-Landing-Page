@@ -47,25 +47,25 @@ const features = [
 const Rankings = () => {
   useGSAP(() => {
     gsap.from(headingText.current, {
-      x: -100,
+      x: -50,
       duration: 0.5,
       opacity: 0,
       scrollTrigger: {
         trigger: headingText.current,
         start: "top 100%",
-        end: "top 50%",
+        end: "+=200",
         scrub: 2,
       },
     });
     gsap.from(".textList", {
-      x: -100,
+      x: -20,
       duration: 0.5,
       opacity: 0,
       stagger: 0.1,
       scrollTrigger: {
         trigger: ".textList",
         start: "top 100%",
-        end: "top 50%",
+        end: "+=300",
         scrub: 2,
       },
     });
