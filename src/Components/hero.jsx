@@ -17,23 +17,30 @@ const Hero = () => {
   const tl = useRef();
   const heroImage = useRef();
   const brandRibbon = useRef();
-  const brandLogo = useRef();
+
   useGSAP(
     () => {
       tl.current = gsap
-        .timeline()
+        .timeline({
+          delay: 1,
+        })
         .from(heroText.current, {
           x: -100,
           opacity: 0,
           duration: 0.5,
           ease: "power1.out",
+          delay: 0.25,
         })
-        .from(heroImage.current, {
-          x: 100,
-          opacity: 0,
-          ease: "power1.out",
-          immediateRender: true,
-        })
+        .from(
+          heroImage.current,
+          {
+            x: 100,
+            opacity: 0,
+            ease: "power1.out",
+            immediateRender: true,
+          },
+          "-=.5",
+        )
         .from(brandRibbon.current, {
           y: 100,
           opacity: 0,
@@ -47,15 +54,19 @@ const Hero = () => {
           repeat: -1,
           ease: "power1.inOut",
         })
-        .to(".brandLogo", {
-          xPercent: -100,
-          duration: 25,
-          repeat: -1,
-          ease: "linear",
-          modifiers: {
-            xPercent: gsap.utils.wrap(-100, 0), // Ensures continuous smooth scrolling
+        .to(
+          ".brandLogo",
+          {
+            xPercent: -100,
+            duration: 25,
+            repeat: -1,
+            ease: "linear",
+            modifiers: {
+              xPercent: gsap.utils.wrap(-100, 0), // Ensures continuous smooth scrolling
+            },
           },
-        });
+          "-=1",
+        );
     },
     { scope: heroContainer },
   );
@@ -99,10 +110,10 @@ const Hero = () => {
             <div className="flex h-fit w-full flex-col gap-4 sm:flex-row sm:gap-0">
               <input
                 type="text"
-                className="h-fit w-full rounded-md border border-white/30 bg-transparent px-4 py-2 placeholder-white/40 sm:w-fit"
+                className="h-fit w-full rounded-md border border-white/30 bg-transparent px-4 py-2 placeholder-white/40 sm:w-fit sm:rounded-r-none"
                 placeholder="Type Email"
               ></input>
-              <button className="btn-primary w-full bg-white py-2 text-black sm:w-max sm:py-1">
+              <button className="btn-primary w-full bg-white py-2 text-black sm:w-max sm:rounded-l-none sm:py-1">
                 Join Waitlist
               </button>
             </div>
@@ -128,7 +139,7 @@ const Hero = () => {
               </p>
             </div>
 
-            <div className="relative flex h-20 overflow-x-hidden py-2 sm:py-0">
+            <div className="relative flex h-20 overflow-x-hidden sm:py-0">
               <ul className="brandLogo flex h-20 items-center justify-start">
                 {logos &&
                   logos.map((logo, index) => (

@@ -4,6 +4,12 @@ import { FaWandMagicSparkles } from "react-icons/fa6";
 import { VscGraphLine } from "react-icons/vsc";
 import { TbTargetArrow } from "react-icons/tb";
 import { PiCursorClickBold } from "react-icons/pi";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useGSAP } from "@gsap/react";
+import { useRef } from "react";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const features = [
   {
@@ -39,11 +45,41 @@ const features = [
 ];
 
 const Rankings = () => {
+  useGSAP(() => {
+    gsap.from(headingText.current, {
+      x: -100,
+      duration: 0.5,
+      opacity: 0,
+      scrollTrigger: {
+        trigger: headingText.current,
+        start: "top 100%",
+        end: "top 50%",
+        scrub: 2,
+      },
+    });
+    gsap.from(".textList", {
+      x: -100,
+      duration: 0.5,
+      opacity: 0,
+      stagger: 0.1,
+      scrollTrigger: {
+        trigger: ".textList",
+        start: "top 100%",
+        end: "top 50%",
+        scrub: 2,
+      },
+    });
+  });
+
+  const headingText = useRef();
   return (
     <>
       <div className="relative mt-20 flex h-fit w-full flex-col justify-start gap-y-16 border-2 border-white/10 px-12 py-16">
         <div className="absolute inset-0 z-0 h-full w-full bg-gradient-to-bl from-transparent to-[#190D2E]"></div>
-        <h2 className="z-10 text-center text-2xl font-medium text-white sm:w-1/3 sm:text-left sm:text-6xl">
+        <h2
+          ref={headingText}
+          className="z-10 text-center text-2xl font-medium text-white sm:w-1/3 sm:text-left sm:text-6xl"
+        >
           Elevate your Rankings.
         </h2>
         <div className="z-10">
@@ -51,7 +87,7 @@ const Rankings = () => {
             {features.map((item, index) => (
               <li
                 key={index}
-                className="sm:h-22 sm:flex sm:w-1/3 sm:flex-col sm:px-5"
+                className="textList sm:h-22 sm:flex sm:w-1/3 sm:flex-col sm:px-5"
               >
                 <div className="z-10 flex h-fit items-center gap-x-2 text-white">
                   {item.icon}

@@ -1,4 +1,38 @@
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+import { useRef } from "react";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+gsap.registerPlugin(ScrollTrigger);
+
 const Clients = () => {
+  useGSAP(() => {
+    gsap
+      .timeline()
+      .from(".headingClient", {
+        y: 50,
+        duration: 1,
+        opacity: 0,
+        ease: "power3.in",
+        scrollTrigger: {
+          trigger: ".headingClient",
+          start: "top 100%",
+          end: "bottom 100%s",
+          scrub: 2,
+        },
+      })
+      .from(".subheadingClient", {
+        y: 50,
+        duration: 1,
+        opacity: 0,
+        ease: "power3.in",
+        scrollTrigger: {
+          trigger: ".subheadingClient",
+          start: "top 100%",
+          end: "bottom 100%",
+          scrub: 2,
+        },
+      });
+  });
   const clientList = [
     {
       name: "James Roberts",
@@ -47,10 +81,10 @@ const Clients = () => {
   return (
     <>
       <div className="relative mx-auto flex flex-col space-y-5 overflow-hidden py-14 text-center text-white sm:max-w-[1920px] sm:gap-y-4">
-        <h2 className="z-20 text-center text-3xl font-medium text-white sm:text-6xl">
+        <h2 className="headingClient z-20 text-center text-3xl font-medium text-white sm:text-6xl">
           What people say
         </h2>
-        <p className="relative z-20 px-5 pb-5 font-light sm:mx-auto sm:w-1/3 sm:text-xl">
+        <p className="subheadingClient relative z-20 px-5 pb-5 font-light sm:mx-auto sm:w-1/3 sm:text-xl">
           Hear firsthand how our solutions have boosted online success for users
           like you.
         </p>

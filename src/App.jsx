@@ -8,7 +8,7 @@ import Connect from "./Components/connect";
 import Footer from "./Components/footer";
 import { useRef, useEffect } from "react";
 import gsap from "gsap";
-import { useGSAP } from "@gsap/react";
+import { ReactLenis } from "lenis/react";
 
 function App() {
   const lenisRef = useRef();
@@ -27,14 +27,16 @@ function App() {
 
   return (
     <>
-      <Navbar />
-      <Hero />
-      <Highlights />
-      <Rankings />
-      <Clients />
-      <Pricing />
-      <Connect />
-      <Footer />
+      <ReactLenis ref={lenisRef} root autoRaf={false}>
+        <Navbar />
+        <Hero />
+        <Highlights />
+        <Rankings />
+        <Clients />
+        <Pricing />
+        <Connect />
+        <Footer />
+      </ReactLenis>
     </>
   );
 }
