@@ -38,6 +38,7 @@ const Hero = () => {
             opacity: 0,
             ease: "power1.out",
             immediateRender: true,
+            lazy: false,
           },
           "-=.5",
         )
