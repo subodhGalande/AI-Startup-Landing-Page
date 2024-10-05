@@ -54,8 +54,8 @@ const Highlights = () => {
   return (
     <>
       <section
-        id="scrollTrigger"
-        className="mt-14 flex flex-col justify-center gap-y-20 px-6"
+        id="features"
+        className="mt-32 flex flex-col justify-center gap-y-20 px-6 py-10"
       >
         <div className="flex flex-col items-center gap-y-6">
           <div

@@ -57,7 +57,7 @@ const PricingCard = () => {
       scrollTrigger: {
         trigger: ".pricingCards",
         start: "top 100%",
-        end: "+=400",
+        end: "+=100",
         scroller: "body",
         scrub: 2,
       },

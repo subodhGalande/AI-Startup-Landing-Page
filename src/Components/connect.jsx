@@ -1,7 +1,10 @@
 const Connect = () => {
   return (
     <>
-      <div className="relative mx-auto flex h-fit w-11/12 flex-col items-center justify-around space-y-10 overflow-clip rounded-xl border-2 border-white/10 sm:mt-20 sm:h-[500px] sm:w-4/6 sm:justify-center sm:gap-y-6 sm:space-y-0">
+      <div
+        id="contact"
+        className="relative mx-auto flex h-fit w-11/12 flex-col items-center justify-around space-y-10 overflow-clip rounded-xl border-2 border-white/10 sm:mt-32 sm:h-[500px] sm:w-4/6 sm:justify-center sm:gap-y-6 sm:space-y-0"
+      >
         <div className="absolute -top-40 z-10 h-5/6 w-full rotate-90 rounded-full bg-[#361764] blur-3xl sm:hidden"></div>
         <div className="absolute inset-0 z-0 bg-hero-pattern-mobile bg-cover opacity-40 sm:bg-hero-pattern-desktop"></div>
         <div className="absolute z-10 h-full w-full bg-gradient-to-t from-black to-transparent to-50%"></div>

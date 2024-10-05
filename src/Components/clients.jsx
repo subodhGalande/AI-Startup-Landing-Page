@@ -88,7 +88,10 @@ const Clients = () => {
 
   return (
     <>
-      <div className="relative mx-auto flex flex-col space-y-4 overflow-hidden py-14 text-center text-white sm:mt-20 sm:max-w-[1920px] sm:gap-y-4 sm:space-y-3">
+      <div
+        id="testimonials"
+        className="relative mx-auto flex flex-col space-y-4 overflow-hidden py-14 text-center text-white sm:mt-20 sm:max-w-[1920px] sm:gap-y-4 sm:space-y-3"
+      >
         <h2 className="headingClient z-20 text-center text-3xl font-medium text-white sm:text-6xl">
           What people say
         </h2>

@@ -34,7 +34,10 @@ const Pricing = () => {
 
   return (
     <>
-      <div className="relative w-full space-y-5 px-12 py-12 text-center text-white sm:space-y-6">
+      <div
+        id="pricing"
+        className="relative w-full space-y-5 px-12 py-10 text-center text-white sm:-mt-10 sm:space-y-6"
+      >
         <div className="absolute inset-0 z-0 h-full rounded-full"></div>
         <h2 className="headingPricing z-20 text-center text-3xl font-medium text-white sm:text-6xl">
           Pricing

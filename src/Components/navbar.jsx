@@ -3,6 +3,7 @@ import { useRef, useState } from "react";
 import { IoClose } from "react-icons/io5";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
+import { useLenis } from "lenis/react";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -10,9 +11,30 @@ const Navbar = () => {
   const mobileNav = useRef();
   const linkContainer = useRef();
   const linkSection = gsap.utils.selector(linkContainer);
+  const lenis = useLenis();
 
-  const toggleMenu = () => {
+  const links = [
+    { name: "Features", path: "#features" },
+    { name: "Testimonials", path: "#testimonials" },
+    { name: "Pricing", path: "#pricing" },
+    { name: "Contact", path: "#contact" },
+  ];
+
+  const scrollTo = (link) => {
+    if (window.innerWidth > 390) {
+      lenis?.scrollTo(link, {
+        offset: -5,
+      });
+    } else {
+      lenis?.scrollTo(link, {
+        offset: -50,
+      });
+    }
+  };
+
+  const toggleMenu = (link) => {
     setIsOpen(!isOpen);
+    scrollTo(link);
   };
 
   useGSAP(() => {
@@ -54,11 +76,11 @@ const Navbar = () => {
         <img src="/Logo.png" height="38px" width="38px" alt="Logo" />+
         {/* Desktop Navigation */}
         <div className="hidden justify-center gap-x-8 px-14 text-sm text-white/70 sm:flex">
-          <a>Features</a>
-          <a>Developers</a>
-          <a>Company</a>
-          <a>Blog</a>
-          <a>Changelogs</a>
+          {links.map((link, index) => (
+            <button key={index} onClick={() => scrollTo(link.path)}>
+              <a href={link.path}>{link.name}</a>
+            </button>
+          ))}
         </div>
         {/* Mobile Hamburger Button */}
         <div className="flex items-center gap-4">
@@ -78,18 +100,18 @@ const Navbar = () => {
         {isOpen && (
           <div
             ref={mobileNav}
-            className="absolute left-0 top-full z-50 w-full rounded-b-xl bg-gradient-to-t from-[#1d0e34]/50 to-black backdrop-blur-3xl sm:hidden"
+            className="absolute left-0 top-full z-50 w-full rounded-b-xl bg-gradient-to-t from-[#1d0e34]/10 to-black backdrop-blur-3xl sm:hidden"
           >
-            <p className="px-7 text-white">Menu</p>
+            <p className="px-7 pt-8 text-white">Menu</p>
             <div
               ref={linkContainer}
-              className="flex flex-col items-start gap-8 px-10 py-10 text-left text-2xl font-light text-white/70"
+              className="flex flex-col items-start gap-8 px-10 py-10 text-left text-xl font-light text-white/70"
             >
-              <a className="links">Features</a>
-              <a className="links">Developers</a>
-              <a className="links">Company</a>
-              <a className="links">Blog</a>
-              <a className="links">Changelogs</a>
+              {links.map((link, index) => (
+                <button key={index} onClick={() => toggleMenu(link.path)}>
+                  <a href={link.path}>{link.name}</a>
+                </button>
+              ))}
             </div>
           </div>
         )}
