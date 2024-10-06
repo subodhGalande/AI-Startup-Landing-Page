@@ -100,7 +100,7 @@ const Navbar = () => {
         {isOpen && (
           <div
             ref={mobileNav}
-            className="absolute left-0 top-full z-50 w-full rounded-b-xl bg-gradient-to-t from-[#1d0e34]/10 to-black backdrop-blur-3xl sm:hidden"
+            className="absolute left-0 top-full z-50 w-full rounded-b-xl bg-gradient-to-t from-black/50 to-black backdrop-blur-3xl sm:hidden"
           >
             <p className="px-7 pt-8 text-white">Menu</p>
             <div
