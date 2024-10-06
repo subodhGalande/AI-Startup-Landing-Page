@@ -100,10 +100,10 @@ const Navbar = () => {
         {isOpen && (
           <div
             ref={mobileNav}
-            className="absolute left-0 top-full z-50 w-full overflow-hidden rounded-b-xl bg-black/50 backdrop-blur-3xl sm:hidden"
+            className="absolute left-0 top-full z-50 w-full overflow-hidden rounded-b-xl bg-black sm:hidden"
           >
             <div className="relative h-full w-full">
-              <div className="absolute -top-44 right-6 z-0 h-80 w-80 rotate-90 rounded-full bg-black blur-3xl">
+              <div className="absolute -bottom-44 right-6 z-0 h-80 w-80 rounded-full bg-[#8C45FF] bg-opacity-15 blur-3xl">
                 {" "}
               </div>
               <p className="relative z-10 px-7 pt-8 text-white">Menu</p>
