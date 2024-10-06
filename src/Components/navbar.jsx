@@ -100,18 +100,23 @@ const Navbar = () => {
         {isOpen && (
           <div
             ref={mobileNav}
-            className="absolute left-0 top-full z-50 w-full rounded-b-xl bg-gradient-to-t from-black/50 to-black backdrop-blur-3xl sm:hidden"
+            className="absolute left-0 top-full z-50 w-full overflow-hidden rounded-b-xl bg-black/50 backdrop-blur-3xl sm:hidden"
           >
-            <p className="px-7 pt-8 text-white">Menu</p>
-            <div
-              ref={linkContainer}
-              className="flex flex-col items-start gap-8 px-10 py-10 text-left text-xl font-light text-white/70"
-            >
-              {links.map((link, index) => (
-                <button key={index} onClick={() => toggleMenu(link.path)}>
-                  <a href={link.path}>{link.name}</a>
-                </button>
-              ))}
+            <div className="relative h-full w-full">
+              <div className="absolute -top-44 right-6 z-0 h-80 w-80 rotate-90 rounded-full bg-black blur-3xl">
+                {" "}
+              </div>
+              <p className="relative z-10 px-7 pt-8 text-white">Menu</p>
+              <div
+                ref={linkContainer}
+                className="relative z-10 flex flex-col items-start gap-8 px-10 py-10 text-left text-xl font-light text-white/70"
+              >
+                {links.map((link, index) => (
+                  <button key={index} onClick={() => toggleMenu(link.path)}>
+                    <a href={link.path}>{link.name}</a>
+                  </button>
+                ))}
+              </div>
             </div>
           </div>
         )}
