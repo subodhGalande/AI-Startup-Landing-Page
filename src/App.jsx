@@ -17,50 +17,63 @@ function App() {
   const [percentage, setPercentage] = useState(0);
 
   useEffect(() => {
-    const images = document.querySelectorAll("img");
-    const totalResources = images.length;
+    // Function to handle image loading
+    const loadImages = () => {
+      const images = document.querySelectorAll("img");
+      const totalResources = images.length;
+      console.log(percentage);
 
-    if (totalResources === 0) {
-      setPercentage(100);
-      setTimeout(() => setIsLoading(false), 100);
-      return;
-    }
-
-    let loadedResources = 0;
-
-    const updateProgress = () => {
-      loadedResources++;
-      const percent = Math.floor((loadedResources / totalResources) * 100);
-      setPercentage(percent);
-
-      if (loadedResources === totalResources) {
+      if (totalResources === 0) {
+        setPercentage(100);
         setTimeout(() => setIsLoading(false), 500);
+        return;
       }
+
+      let loadedResources = 0;
+
+      const updateProgress = () => {
+        loadedResources++;
+        const percent = Math.floor((loadedResources / totalResources) * 100);
+        setPercentage(percent);
+
+        if (loadedResources === totalResources) {
+          setTimeout(() => setIsLoading(false), 500);
+        }
+      };
+
+      images.forEach((img) => {
+        if (img.complete) {
+          setInterval(() => updateProgress(), 1000);
+        } else {
+          img.addEventListener("load", updateProgress);
+          img.addEventListener("error", updateProgress);
+        }
+      });
+
+      // Cleanup on unmount
+      return () => {
+        images.forEach((img) => {
+          img.removeEventListener("load", updateProgress);
+          img.removeEventListener("error", updateProgress);
+        });
+      };
     };
 
-    images.forEach((img) => {
-      if (img.complete) {
-        updateProgress();
-      } else {
-        img.addEventListener("load", updateProgress);
-        img.addEventListener("error", updateProgress);
-      }
-    });
+    // Call loadImages to start tracking images
+    loadImages();
 
+    // GSAP ticker for smooth scroll library
     function update(time) {
       lenisRef.current?.lenis?.raf(time * 1000);
     }
 
     gsap.ticker.add(update);
 
+    // Cleanup on component unmount
     return () => {
       gsap.ticker.remove(update);
-      images.forEach((img) => {
-        img.removeEventListener("load", updateProgress);
-        img.removeEventListener("error", updateProgress);
-      });
     };
-  }, []); // Dependency array ensures this runs only once after component mount
+  }, []); // Empty dependency array means this runs once after initial render
 
   return (
     <>
