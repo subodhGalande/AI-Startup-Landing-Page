@@ -6,12 +6,22 @@ import Clients from "./Components/clients";
 import Pricing from "./Components/pricing";
 import Connect from "./Components/connect";
 import Footer from "./Components/footer";
-import { useRef, useEffect } from "react";
+import Loader from "./Components/loader";
+import { useRef, useEffect, useState } from "react";
 import gsap from "gsap";
 import { ReactLenis } from "lenis/react";
 
 function App() {
   const lenisRef = useRef();
+  const [isLoading, setIsLoading] = useState(false);
+
+  useEffect(() => {
+    window.onload = () => {
+      setTimeout(() => {
+        setIsLoading(false);
+      }, 3000);
+    };
+  });
 
   useEffect(() => {
     function update(time) {
@@ -27,16 +37,19 @@ function App() {
 
   return (
     <>
-      <ReactLenis ref={lenisRef} root autoRaf={false}>
-        <Navbar />
-        <Hero />
-        <Highlights />
-        <Rankings />
-        <Clients />
-        <Pricing />
-        <Connect />
-        <Footer />
-      </ReactLenis>
+      {isLoading && <Loader />}
+      {!isLoading && (
+        <ReactLenis ref={lenisRef} root autoRaf={false}>
+          <Navbar />
+          <Hero />
+          <Highlights />
+          <Rankings />
+          <Clients />
+          <Pricing />
+          <Connect />
+          <Footer />
+        </ReactLenis>
+      )}
     </>
   );
 }

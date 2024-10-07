@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
@@ -9,14 +9,6 @@ const Modal = ({ isOpen, onClose, children }) => {
   const backdropRef = useRef(null);
   const imageRef = useRef();
   const modalContentRef = useRef();
-
-  //   useEffect(() => {
-  //     if (isOpen) {
-  //       document.body.style.overflowY = "hidden";
-  //     } else {
-  //       document.body.style.position = "unset";
-  //     }
-  //   }, [isOpen]);
 
   useGSAP(
     () => {
@@ -79,6 +71,7 @@ const Modal = ({ isOpen, onClose, children }) => {
         </div>
 
         {/* modal content */}
+
         <div className="z-20 flex flex-col items-center justify-center">
           <div className="z-20 h-32 w-32 sm:h-44 sm:w-44">
             <img
