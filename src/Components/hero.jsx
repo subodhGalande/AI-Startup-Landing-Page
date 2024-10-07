@@ -1,6 +1,7 @@
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
-import { useRef } from "react";
+import { useRef, useState } from "react";
+import Modal from "./modal";
 
 const Hero = () => {
   const logos = [
@@ -11,6 +12,20 @@ const Hero = () => {
     "/echo.png",
     "/celestial.png",
   ];
+
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [email, setEmail] = useState("");
+
+  const handleOnChange = (e) => setEmail(e.target.value);
+
+  const handleModalOpen = (e) => {
+    e.preventDefault();
+    setIsModalOpen(true);
+  };
+  const closeModal = () => {
+    setIsModalOpen(false);
+    setEmail("");
+  };
 
   const heroContainer = useRef();
   const heroText = useRef();
@@ -108,16 +123,24 @@ const Hero = () => {
               Elevate your site’s visibility effortlessly with AI, where smart
               technology meets user-friendly SEO tools.
             </p>
-            <div className="flex h-fit w-full flex-col gap-4 sm:flex-row sm:gap-0">
+            <form
+              onSubmit={handleModalOpen}
+              className="flex h-fit w-full flex-col gap-4 sm:flex-row sm:gap-0"
+            >
               <input
-                type="text"
-                className="h-fit w-full rounded-md border border-white/30 bg-transparent px-4 py-2 placeholder-white/40 sm:w-fit sm:rounded-r-none"
+                type="email"
+                className="h-fit w-full rounded-md border border-white/30 bg-transparent px-4 py-2 text-white placeholder-white/40 sm:w-fit sm:rounded-r-none"
                 placeholder="Type Email"
+                onChange={(e) => handleOnChange(e)}
+                required
               ></input>
-              <button className="btn-primary w-full bg-white py-2 text-black sm:w-max sm:rounded-l-none sm:py-1">
+              <button
+                type="submit"
+                className="btn-primary w-full bg-white py-2 text-black sm:w-max sm:rounded-l-none sm:py-1"
+              >
                 Join Waitlist
               </button>
-            </div>
+            </form>
           </div>
           <div ref={heroImage} className="z-30 hidden h-full w-1/2 sm:block">
             {" "}
@@ -176,6 +199,13 @@ const Hero = () => {
         </div>
 
         <div className="absolute inset-0 z-10 h-full rounded-b-3xl bg-mobile-gradient bg-cover sm:hidden"></div>
+
+        <Modal isOpen={isModalOpen} onClose={closeModal}>
+          <p className="">
+            Check inbox at <strong>{email} </strong>
+            for confirmation, we’ll be in touch soon!
+          </p>
+        </Modal>
       </section>
     </>
   );

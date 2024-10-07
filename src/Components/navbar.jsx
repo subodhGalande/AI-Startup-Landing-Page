@@ -4,6 +4,7 @@ import { IoClose } from "react-icons/io5";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { useLenis } from "lenis/react";
+import Modal from "./modal";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -12,6 +13,14 @@ const Navbar = () => {
   const linkContainer = useRef();
   const linkSection = gsap.utils.selector(linkContainer);
   const lenis = useLenis();
+
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const handleModalOpen = () => {
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => setIsModalOpen(false);
 
   const links = [
     { name: "Features", path: "#features" },
@@ -86,7 +95,9 @@ const Navbar = () => {
         <div className="flex items-center gap-4">
           {/* Call to Action Button (Visible on both mobile and desktop) */}
           <div className="gap-4">
-            <button className="btn-primary">Join Waitlist</button>
+            <button onClick={handleModalOpen} className="btn-primary">
+              Join Waitlist
+            </button>
           </div>
           <button onClick={toggleMenu} className="text-white sm:hidden">
             {isOpen ? (
@@ -121,6 +132,11 @@ const Navbar = () => {
           </div>
         )}
       </nav>
+      <Modal isOpen={isModalOpen} onClose={closeModal}>
+        <p className="">
+          Check inbox for confirmation, we’ll be in touch soon!
+        </p>
+      </Modal>
     </>
   );
 };

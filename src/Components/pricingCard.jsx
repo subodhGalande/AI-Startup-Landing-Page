@@ -1,8 +1,9 @@
 import { IoCheckmarkSharp } from "react-icons/io5";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import Modal from "./modal";
 gsap.registerPlugin(ScrollTrigger);
 
 const prices = [
@@ -45,6 +46,18 @@ const prices = [
 ];
 
 const PricingCard = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [plan, setPlan] = useState("");
+
+  const handleModalOpen = (planName) => {
+    setPlan(planName);
+    setIsModalOpen(true);
+  };
+  const closeModal = () => {
+    setIsModalOpen(false);
+    setPlan("");
+  };
+
   const pricingSection = useRef();
   const cardContainer = gsap.utils.selector(pricingSection);
 
@@ -91,12 +104,21 @@ const PricingCard = () => {
                 </div>
               ))}
             </div>
-            <button className="btn-primary sm:btn-secondary sm:group-hover:btn-primary z-30">
+            <button
+              onClick={() => handleModalOpen(item.plan)}
+              className="btn-primary sm:btn-secondary sm:group-hover:btn-primary z-30 w-full"
+            >
               Join Waitlist
             </button>
           </div>
         ))}
       </div>
+      <Modal isOpen={isModalOpen} onClose={closeModal}>
+        <p className="">
+          Check inbox for <strong> {plan} plan </strong> confirmation, we’ll be
+          in touch soon!
+        </p>
+      </Modal>
     </>
   );
 };

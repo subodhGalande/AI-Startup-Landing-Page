@@ -1,4 +1,20 @@
+import { useState } from "react";
+import Modal from "./modal";
+
 const Connect = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [contactEmail, setContactEmail] = useState("");
+
+  const handleOnChange = (e) => setContactEmail(e.target.value);
+
+  const handleModalOpen = (e) => {
+    e.preventDefault();
+    setIsModalOpen(true);
+  };
+  const closeModal = () => {
+    setIsModalOpen(false);
+    setContactEmail("");
+  };
   return (
     <>
       <div
@@ -14,20 +30,34 @@ const Connect = () => {
         <h1 className="relative z-10 text-center text-4xl font-medium text-white sm:h-fit sm:w-1/2 sm:text-5xl sm:leading-[3.5rem]">
           AI-driven SEO for Everyone
         </h1>
-        <div className="relative z-10 flex h-fit w-full flex-col gap-4 px-8 sm:w-fit sm:flex-row sm:gap-0">
+        <form
+          onSubmit={handleModalOpen}
+          className="relative z-10 flex h-fit w-full flex-col gap-4 px-8 sm:w-fit sm:flex-row sm:gap-0"
+        >
           <input
-            type="text"
-            className="h-fit w-full rounded-md border border-white/30 bg-transparent px-4 py-2 placeholder-white/40 sm:w-fit"
+            type="email"
+            className="h-fit w-full rounded-l-md border border-white/30 bg-transparent px-4 py-2 text-white placeholder-white/40 sm:w-fit"
             placeholder="Type Email"
+            required
+            onChange={(e) => handleOnChange(e)}
           ></input>
-          <button className="btn-primary w-full bg-white py-2 text-black sm:w-fit">
+          <button
+            type="submit"
+            className="btn-primary w-full rounded-l-none rounded-r-md bg-white py-2 text-black sm:w-fit"
+          >
             Join Waitlist
           </button>
-        </div>
+        </form>
         <p className="z-10 pb-8 text-center text-sm text-white/70 sm:pb-0">
           No credit card required | 7-days free trial
         </p>
       </div>
+      <Modal isOpen={isModalOpen} onClose={closeModal}>
+        <p className="">
+          Check inbox at <strong>{contactEmail} </strong>
+          for confirmation, we’ll be in touch soon!
+        </p>
+      </Modal>
     </>
   );
 };
