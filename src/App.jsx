@@ -19,7 +19,7 @@ function App() {
     window.onload = () => {
       setIsLoading(false);
     };
-  }, [isLoading]);
+  });
 
   useEffect(() => {
     function update(time) {
