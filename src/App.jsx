@@ -13,15 +13,13 @@ import { ReactLenis } from "lenis/react";
 
 function App() {
   const lenisRef = useRef();
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     window.onload = () => {
-      setTimeout(() => {
-        setIsLoading(false);
-      }, 3000);
+      setIsLoading(false);
     };
-  });
+  }, [isLoading]);
 
   useEffect(() => {
     function update(time) {
