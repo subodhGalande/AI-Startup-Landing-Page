@@ -25,14 +25,25 @@ const Footer = () => {
   return (
     <div className="mt-20 flex h-fit w-full flex-col gap-y-12 border-t-2 border-white/10 px-8 py-4 sm:flex-row sm:justify-between">
       <div className="flex items-center justify-between sm:flex-col">
-        <div className="flex items-center gap-x-3">
-          <img src="/Logo.png" alt="" height="38px" width="38px" />
-          <p className="text-white">AI Startup</p>
+        <div>
+          <a className="flex items-center gap-x-3" href="#">
+            <img src="/Logo.png" alt="" height="38px" width="38px" />
+            <p className="text-white">AI Startup</p>
+          </a>
         </div>
         <div className="flex items-center gap-x-5 text-white/70">
-          <FaXTwitter className="h-6 w-6" />
-          <AiFillInstagram className="h-7 w-7" />
-          <FaYoutube className="h-7 w-8" />
+          <a target="_blank" href="https://x.com">
+            <FaXTwitter className="h-6 w-6" />
+          </a>
+          <a target="_blank" href="https://instagram.com">
+            {" "}
+            <AiFillInstagram className="h-7 w-7" />{" "}
+          </a>
+
+          <a target="_blank" href="https://youtube.com">
+            {" "}
+            <FaYoutube className="h-7 w-8" />{" "}
+          </a>
         </div>
       </div>
       <div className="flex flex-wrap gap-y-14 sm:w-1/2 sm:flex-nowrap">

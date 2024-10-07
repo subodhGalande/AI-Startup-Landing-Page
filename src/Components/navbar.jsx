@@ -82,7 +82,9 @@ const Navbar = () => {
         ref={navbar}
         className="fixed z-50 flex h-fit w-full justify-between bg-black px-4 py-4 backdrop-blur-xl sm:relative sm:mx-auto sm:mt-2 sm:w-fit sm:items-center sm:justify-around sm:rounded-xl sm:border-2 sm:border-white/10 sm:px-2 sm:py-2"
       >
-        <img src="/Logo.png" height="38px" width="38px" alt="Logo" />+
+        <a href="#">
+          <img src="/Logo.png" height="38px" width="38px" alt="Logo" />
+        </a>
         {/* Desktop Navigation */}
         <div className="hidden justify-center gap-x-8 px-14 text-sm text-white/70 sm:flex">
           {links.map((link, index) => (
